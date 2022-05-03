@@ -18,8 +18,8 @@ class MatrixAnimator(from: View, to: View) : PropertyAnimatorCreator<ReactImageV
     override fun create(options: SharedElementTransitionOptions): Animator {
         with(to as ReactImageView) {
             hierarchy.actualImageScaleType = InterpolatingScaleType(
-                    getScaleType(from),
-                    getScaleType(to),
+                    (getScaleType(from) as InterpolatingScaleType),
+                    (getScaleType(to) as InterpolatingScaleType),
                     calculateBounds(from),
                     calculateBounds(to)
             )
